@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    padding: 40px;
+}
+#container {
+    width: 1600px;
+    border: 2px solid red;
+}
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+}
+.item {
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+    background-color: #fcbf16;
+    border-radius: 5px;
+}
+#A {
+    grid-column: 1 / 3;
+    grid-row: 1/2;
+}
+#B {
+    grid-column: 3 / 5;
+    grid-row: 1/2;
+}
+#D {
+    grid-column: 2/5;
+    grid-row: 2/3;
+}
+#E {
+    grid-column: 1/5;
+    grid-row: 3/4;
+}
