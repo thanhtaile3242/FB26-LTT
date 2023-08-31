@@ -1,0 +1,13 @@
+body {
+    background-image: linear-gradient(to right, #fcbf16, #992154);
+    text-align: center;
+}
+h1 {
+    letter-spacing: 5px;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+img {
+    border-radius: 50%;
+}

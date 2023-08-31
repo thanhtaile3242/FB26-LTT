@@ -1,0 +1,22 @@
+body {
+    padding-left: 15px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom right;
+}
+.text {
+    width: 60%;
+}
+h1 {
+    color: tomato;
+    text-align: center;
+}
+h2 {
+    color: dodgerblue;
+    text-align: center;
+}
+p {
+    line-height: 2;
+    font-size: 20px;
+}
