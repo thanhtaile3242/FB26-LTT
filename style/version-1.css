@@ -1,0 +1,273 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.5;
+}
+
+header #logo-nav nav ul li a:hover, header #logo-nav nav ul li a#home {
+  color: black;
+  background-color: white;
+}
+
+#services #right .item div i, #services #left h2, #statistics h2, #what-we-do h2, #welcome h2, header #content-center div h2 {
+  font-size: 3rem;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/1.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+header #logo-nav {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: normal;
+  align-content: normal;
+}
+header #logo-nav h1 {
+  margin: 22px 0 0 50px;
+  padding: 0 0 0 0;
+}
+header #logo-nav nav {
+  margin: 16px 50px 0 0;
+  padding: 0 0 0 0;
+}
+header #logo-nav nav ul {
+  list-style: none;
+}
+header #logo-nav nav ul li {
+  display: inline-block;
+  position: relative;
+}
+header #logo-nav nav ul li:hover > ul.sub-menu {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+header #logo-nav nav ul li a {
+  margin: 0 0 0 0;
+  padding: 15px 15px 15px 15px;
+  color: white;
+  display: block;
+  text-decoration: none;
+  border-radius: 10px;
+}
+header #logo-nav nav ul li a:hover i {
+  color: black;
+}
+header #logo-nav nav ul li i {
+  margin: 0 0 0 5px;
+  padding: 0 0 0 0;
+  color: white;
+}
+header #logo-nav nav ul li ul {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+header #logo-nav nav ul li ul li {
+  display: block;
+}
+header #logo-nav nav ul li ul li a {
+  text-align: left;
+}
+header #content-center {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: normal;
+}
+header #content-center div {
+  margin: 0 0 0 0;
+  padding: 42px 0 0 0;
+}
+header #content-center div p {
+  margin: 16px 0 56px 0;
+  padding: 0 0 0 0;
+  color: #999;
+  letter-spacing: 1px;
+}
+header #content-center div a {
+  margin: 0 0 0 0;
+  padding: 10px 10px 10px 10px;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+header #content-bottom {
+  width: 100%;
+  height: 20%;
+  margin: 0 0 0 0;
+  padding: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: normal;
+}
+header #content-bottom label {
+  margin: 0 5px 0 5px;
+  padding: 0 0 0 0;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: white;
+}
+
+#welcome {
+  margin: 0 0 0 0;
+  padding: 100px 168px 100px 168px;
+}
+#welcome p {
+  margin: 50px 135px 50px 135px;
+  padding: 0 0 0 0;
+  color: #999;
+}
+#welcome img {
+  width: 100%;
+  height: auto;
+}
+
+#what-we-do {
+  width: 100%;
+  height: 100vh;
+  margin: 0 0 0 0;
+  padding: 0 100px 100px 100px;
+}
+#what-we-do h2 {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 0;
+}
+#what-we-do #container-1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+#what-we-do #container-1 .item-1 {
+  width: 25%;
+  height: auto;
+  margin: 0 0 0 0;
+  padding: 20px 20px 20px 20px;
+}
+#what-we-do #container-1 .item-1 img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+#what-we-do #container-1 .item-1 h3 {
+  margin: 20px 20px 20px 20px;
+  padding: 0 0 0 0;
+}
+#what-we-do #container-1 .item-1 p {
+  margin: 0 0 16px 0;
+  padding: 0 0 0 0;
+  color: #999;
+}
+
+#statistics {
+  background-image: url("../img/3.jpg");
+  background-position: center;
+  background-size: cover;
+  margin: 0 0 0 0;
+  padding: 50px 50px 50px 50px;
+  color: white;
+}
+#statistics h2 {
+  margin: 40px 0 40px 0;
+  padding: 0 0 0 0;
+}
+#statistics #container-2 {
+  margin: 0 0 0 0;
+  padding: 20px 20px 20px 20px;
+  display: flex;
+}
+#statistics #container-2 .item-2 {
+  width: 25%;
+  height: auto;
+}
+#statistics #container-2 .item-2 p:first-child {
+  font-size: 4.5rem;
+}
+
+#services {
+  width: 100%;
+  height: 875px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: normal;
+  margin: 0 0 0 0;
+  padding: 100px 100px 100px 100px;
+  background-color: #f8f9fa;
+}
+#services #left {
+  width: 532px;
+  height: 675px;
+  margin: 0 0 0 0;
+  padding: 0 50px 0 50px;
+}
+#services #left h2 {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 0;
+  text-align: left;
+}
+#services #left p {
+  margin: 0 0 16px 0;
+  padding: 0 0 0 0;
+  color: #999;
+  line-height: 2.5rem;
+  text-align: left;
+}
+#services #right {
+  width: 888px;
+  height: 675px;
+  display: flex;
+  justify-content: space-between;
+  align-items: normal;
+  align-content: space-between;
+  background-color: white;
+  flex-wrap: wrap;
+}
+#services #right .item {
+  width: 432px;
+  height: 325px;
+  margin: 0 0 0 0;
+  padding: 50px 50px 50px 50px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 7px 7px 10px 0 rgba(76, 110, 245, 0.1);
+}
+#services #right .item:hover {
+  background-color: #ff9900;
+}
+#services #right .item:hover i,
+#services #right .item p {
+  color: white;
+}
+#services #right .item div i {
+  color: #ff9900;
+}
+#services #right .item h3 {
+  margin: 32px 0 32px 0;
+  padding: 0 0 0 0;
+  font-size: 2rem;
+}
+#services #right .item p {
+  margin: 0 0 0 0;
+  padding: 0 15px 0 15px;
+  color: #999;
+}
+
+/*# sourceMappingURL=version-1.css.map */

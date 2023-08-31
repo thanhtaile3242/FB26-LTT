@@ -1,0 +1,264 @@
+// Global
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1.5;
+}
+// Variables
+$white: white;
+$black: black;
+$gray: #999;
+$light-gray: #f8f9fa;
+$orange: #ff9900;
+// Mixin
+@mixin flex-box($size, $justify, $items, $content) {
+    display: $size;
+    justify-content: $justify;
+    align-items: $items;
+    align-content: $content;
+}
+
+@mixin m-p($a: 0, $b: 0, $c: 0, $d: 0, $e: 0, $f: 0, $g: 0, $h: 0) {
+    margin: $a $b $c $d;
+    padding: $e $f $g $h;
+}
+
+@mixin header-display-position($dis, $pos) {
+    display: $dis;
+    position: $pos;
+}
+
+@mixin w-h($width: 100%, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bg-img($link, $position: center, $size: cover) {
+    background-image: url($link);
+    background-position: $position;
+    background-size: $size;
+}
+
+// Extend
+%header-theme {
+    color: $black;
+    background-color: $white;
+}
+%font-size {
+    font-size: 3rem;
+}
+// CSS - Header - Version-1 (Flex)
+header {
+    @include w-h($height: 100vh);
+    @include bg-img("../img/1.jpg");
+    color: $white;
+
+    #logo-nav {
+        @include w-h($height: 20%);
+        @include flex-box(flex, space-between, normal, normal);
+        h1 {
+            @include m-p(22px, 0, 0, 50px);
+        }
+        nav {
+            @include m-p(16px, 50px, 0, 0);
+            ul {
+                list-style: none;
+                li {
+                    @include header-display-position(inline-block, relative);
+                    &:hover > ul.sub-menu {
+                        display: block;
+                        background-color: rgba($color: #000000, $alpha: 0.4);
+                    }
+
+                    a#home {
+                        @extend %header-theme;
+                    }
+                    a {
+                        @include m-p($e: 15px, $f: 15px, $g: 15px, $h: 15px);
+                        color: $white;
+                        display: block;
+                        text-decoration: none;
+                        border-radius: 10px;
+                        &:hover {
+                            @extend %header-theme;
+                            i {
+                                color: black;
+                            }
+                        }
+                    }
+                    i {
+                        @include m-p(0, 0, 0, 5px);
+                        color: $white;
+                    }
+                    ul {
+                        @include header-display-position(none, absolute);
+                        @include w-h(100%);
+                        border-radius: 10px;
+                        li {
+                            display: block;
+                            a {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #content-center {
+        @include w-h($height: 60%);
+        @include flex-box(flex, center, center, normal);
+        div {
+            @include m-p($e: 42px);
+            h2 {
+                @extend %font-size;
+            }
+            p {
+                @include m-p(16px, 0, 56px, 0);
+                color: $gray;
+                letter-spacing: 1px;
+            }
+            a {
+                @include m-p(0, 0, 0, 0, 10px, 10px, 10px, 10px);
+                color: $white;
+                display: inline-block;
+                text-decoration: none;
+                border: 2px solid $white;
+                border-radius: 5px;
+            }
+        }
+    }
+    #content-bottom {
+        @include w-h($height: 20%);
+        @include m-p($g: 10px);
+        @include flex-box(flex, center, flex-end, normal);
+        label {
+            @include m-p(0, 5px, 0, 5px);
+            @include w-h(10px, 10px);
+            display: inline-block;
+            border-radius: 50%;
+            background-color: $white;
+        }
+    }
+}
+// CSS - welcome
+#welcome {
+    @include m-p(0, 0, 0, 0, 100px, 168px, 100px, 168px);
+    h2 {
+        @extend %font-size;
+    }
+    p {
+        @include m-p(50px, 135px, 50px, 135px);
+        color: $gray;
+    }
+    img {
+        @include w-h(100%);
+    }
+}
+// CSS what-we-do
+#what-we-do {
+    @include w-h($height: 100vh);
+    @include m-p(0, 0, 0, 0, 0, 100px, 100px, 100px);
+    h2 {
+        @include m-p($c: 40px);
+        @extend %font-size;
+    }
+    #container-1 {
+        display: flex;
+        flex-wrap: wrap;
+        .item-1 {
+            @include w-h(25%);
+            @include m-p(0, 0, 0, 0, 20px, 20px, 20px, 20px);
+            img {
+                @include w-h(150px, 150px);
+                border-radius: 50%;
+            }
+            h3 {
+                @include m-p(20px, 20px, 20px, 20px);
+            }
+            p {
+                @include m-p($c: 16px);
+                color: $gray;
+            }
+        }
+    }
+}
+// CSS statistics
+#statistics {
+    @include bg-img("../img/3.jpg");
+    @include m-p(0, 0, 0, 0, 50px, 50px, 50px, 50px);
+    color: $white;
+    h2 {
+        @extend %font-size;
+        @include m-p(40px, 0, 40px, 0);
+    }
+    #container-2 {
+        @include m-p(0, 0, 0, 0, 20px, 20px, 20px, 20px);
+        display: flex;
+        .item-2 {
+            @include w-h(25%);
+            p:first-child {
+                font-size: 4.5rem;
+            }
+        }
+    }
+}
+// CSS services
+#services {
+    @include w-h($height: 875px);
+    @include flex-box(flex, space-between, center, normal);
+    @include m-p(0, 0, 0, 0, 100px, 100px, 100px, 100px);
+    background-color: $light-gray;
+    #left {
+        @include w-h(532px, 675px);
+        @include m-p(0, 0, 0, 0, 0, 50px, 0, 50px);
+        h2 {
+            @extend %font-size;
+            @include m-p($c: 40px);
+            text-align: left;
+        }
+        p {
+            @include m-p($c: 16px);
+            color: $gray;
+            line-height: 2.5rem;
+            text-align: left;
+        }
+    }
+    #right {
+        @include w-h(888px, 675px);
+        @include flex-box(flex, space-between, normal, space-between);
+        background-color: $white;
+        flex-wrap: wrap;
+        .item {
+            @include w-h(432px, 325px);
+            @include m-p(0, 0, 0, 0, 50px, 50px, 50px, 50px);
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: 7px 7px 10px 0 rgba(76, 110, 245, 0.1);
+            &:hover {
+                background-color: $orange;
+            }
+            &:hover i,
+            p {
+                color: $white;
+            }
+            div {
+                i {
+                    @extend %font-size;
+                    color: $orange;
+                }
+            }
+            h3 {
+                @include m-p(32px, 0, 32px, 0);
+                font-size: 2rem;
+            }
+            p {
+                @include m-p(0, 0, 0, 0, 0, 15px, 0, 15px);
+                color: $gray;
+            }
+        }
+    }
+}
