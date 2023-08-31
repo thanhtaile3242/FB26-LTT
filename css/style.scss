@@ -1,0 +1,548 @@
+// Variables
+$white: white;
+$black: black;
+$gray: #999;
+$light-gray: #f8f9fa;
+$orange: #ff9900;
+// Global
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
+    line-height: 1.5;
+}
+
+// Mixin
+@mixin flex-box($size, $justify, $items, $content) {
+    display: $size;
+    justify-content: $justify;
+    align-items: $items;
+    align-content: $content;
+}
+
+@mixin m-p($a: 0, $b: 0, $c: 0, $d: 0, $e: 0, $f: 0, $g: 0, $h: 0) {
+    margin: $a $b $c $d;
+    padding: $e $f $g $h;
+}
+
+@mixin header-display-position($dis, $pos) {
+    display: $dis;
+    position: $pos;
+}
+
+@mixin w-h($width: 100%, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bg-img($link, $position: center, $size: cover) {
+    background-image: url($link);
+    background-position: $position;
+    background-size: $size;
+}
+
+// Extend
+%header-theme {
+    color: $black;
+    background-color: $white;
+}
+%font-size {
+    font-size: 3rem;
+}
+// CSS - Header
+header {
+    @include w-h($height: 100vh);
+    @include bg-img("../img/1.jpg");
+    position: relative;
+    h1 {
+        @include m-p(22px, 0, 0, 50px);
+        color: $white;
+        float: left;
+    }
+    nav {
+        float: right;
+        @include m-p(16px, 50px, 0, 0);
+        ul {
+            li {
+                @include header-display-position(inline-block, relative);
+                &:hover > ul {
+                    display: block;
+                    background-color: rgba($color: #000000, $alpha: 0.4);
+                }
+
+                a#home {
+                    @extend %header-theme;
+                }
+                a {
+                    @include m-p($e: 15px, $f: 15px, $g: 15px, $h: 15px);
+                    color: $white;
+                    display: block;
+                    border-radius: 10px;
+                    &:hover {
+                        @extend %header-theme;
+                        i {
+                            color: black;
+                        }
+                    }
+                }
+                i {
+                    @include m-p(0, 0, 0, 5px);
+                    color: $white;
+                }
+                ul {
+                    @include header-display-position(none, absolute);
+                    @include w-h(100%);
+                    border-radius: 10px;
+                    li {
+                        display: block;
+                        a {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #content-center {
+        clear: both;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        h2 {
+            @include m-p(42px);
+            color: $white;
+            font-size: 3rem;
+        }
+        p {
+            @include m-p(16px, 0, 56px, 0);
+            color: $gray;
+            letter-spacing: 1px;
+        }
+        a {
+            @include m-p(0, 0, 0, 0, 10px, 10px, 10px, 10px);
+            color: $white;
+            display: inline-block;
+            border: 2px solid $white;
+            border-radius: 10px;
+        }
+    }
+    #content-bottom {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        label {
+            @include w-h(5px, 5px);
+            background-color: $white;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    }
+}
+// CSS - Welcome
+#welcome {
+    @include m-p(0, 0, 0, 0, 100px, 168px, 100px, 168px);
+    h2 {
+        @extend %font-size;
+        color: $black;
+    }
+    p {
+        @include m-p(50px, 135px, 50px, 135px);
+        color: $gray;
+    }
+    img {
+        @include w-h(100%);
+    }
+}
+// CSS - What-we-do
+#what-we-do {
+    @include w-h($height: 100vh);
+    @include m-p(0, 0, 0, 0, 0, 100px, 100px, 100px);
+    h2 {
+        @include m-p($c: 40px);
+        @extend %font-size;
+        color: $black;
+    }
+    #container-1 {
+        display: flex;
+        flex-wrap: wrap;
+        .item-1 {
+            @include w-h(25%);
+            @include m-p(0, 0, 0, 0, 20px, 20px, 20px, 20px);
+            img {
+                @include w-h(150px, 150px);
+                border-radius: 50%;
+            }
+            h3 {
+                @include m-p(20px, 20px, 20px, 20px);
+                color: $black;
+            }
+            p {
+                @include m-p($c: 16px);
+                color: $gray;
+            }
+        }
+    }
+}
+// CSS - Statistics
+#statistics {
+    @include bg-img("../img/3.jpg");
+    @include m-p(0, 0, 0, 0, 50px, 50px, 50px, 50px);
+    color: $white;
+    h2 {
+        @extend %font-size;
+        @include m-p(40px, 0, 40px, 0);
+    }
+    #container-2 {
+        @include m-p(0, 0, 0, 0, 20px, 20px, 20px, 20px);
+        display: flex;
+        .item-2 {
+            @include w-h(25%);
+            p:first-child {
+                font-size: 4.5rem;
+            }
+        }
+    }
+}
+// CSS - Services
+// Version-2 Sử dụng grid-template
+#services {
+    @include m-p(0, 0, 0, 0, 100px, 100px, 100px, 100px);
+    background-color: $light-gray;
+    display: grid;
+    grid-template-columns: 36% 4% 60%;
+    #left {
+        grid-area: 1/1/1/2;
+        @include m-p(0, 0, 0, 0, 0, 50px, 0, 50px);
+        h2 {
+            @extend %font-size;
+            @include m-p($c: 40px);
+            text-align: left;
+        }
+        p {
+            @include m-p($c: 16px);
+            color: $gray;
+            line-height: 2.5rem;
+            text-align: left;
+        }
+    }
+    #right {
+        grid-area: 1/3/1/4;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50% 50%;
+        row-gap: 10px;
+        .item {
+            @include w-h(432px, 325px);
+            @include m-p(0, 0, 0, 0, 50px, 50px, 50px, 50px);
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: rgba(76, 110, 245, 0.1) 7px 7px 10px 0;
+            &:hover {
+                background-color: $orange;
+            }
+            &:hover i,
+            p {
+                color: $white;
+            }
+            div {
+                i {
+                    @extend %font-size;
+                    color: $orange;
+                }
+            }
+            h3 {
+                @include m-p(32px, 0, 32px, 0);
+                font-size: 2rem;
+            }
+            p {
+                @include m-p(0, 0, 0, 0, 0, 15px, 0, 15px);
+                color: $gray;
+            }
+        }
+    }
+}
+// CSS-Testimonials
+#testimonials {
+    @include bg-img("../img/bg.jpg");
+    @include m-p(0, 0, 0, 0, 45px, 45px, 45px, 45px);
+    color: $white;
+    h2 {
+        @extend %font-size;
+        @include m-p(40px, 0, 40px, 0);
+        line-height: 4.5rem;
+    }
+    #testimonials-container {
+        @include m-p(0, 150px, 0, 150px, 20px, 20px, 20px, 20px);
+        @include flex-box(flex, space-around, unset, unset);
+        .item {
+            @include w-h(350px);
+            @include flex-box(flex, unset, unset, unset);
+            flex-direction: column;
+            p {
+                @include m-p(15px, 0, 15px, 0, 0, 0, 0, 0);
+                font-size: 1rem;
+                letter-spacing: 1px;
+                line-height: 1.8rem;
+            }
+            div {
+                @include m-p(0, 0, 0, 0, 10px, 10px, 10px, 10px);
+                img {
+                    border-radius: 50%;
+                }
+            }
+            h3 {
+                @include m-p(18px, 18px, 18px, 18px, 10px, 10px, 10px, 10px);
+                font-size: 1.2rem;
+                color: $orange;
+                align-self: self-end;
+            }
+        }
+    }
+}
+// CSS-Our-blog
+#our-blog {
+    @include m-p(0, 0, 0, 0, 100px, 100px, 100px, 100px);
+    h2 {
+        @include m-p(40px, 0, 40px, 0);
+        @extend %font-size;
+        line-height: 4.5rem;
+    }
+    #blog-container {
+        @include flex-box(flex, space-around, unset, unset);
+        .item-blog {
+            @include w-h(460px);
+            .pic-1 {
+                @include bg-img("../img/b1.jpg");
+            }
+            .pic-2 {
+                @include bg-img("../img/b2.jpg");
+            }
+            .blog-top {
+                @include w-h($height: 384px);
+                border-radius: 2px;
+            }
+            .blog-bottom {
+                @include m-p(0, 0, 0, 0, 16px, 16px, 16px, 16px);
+                text-align: left;
+                border: 1px solid rgb(219, 219, 219);
+                border-radius: 1%;
+                .a-top {
+                    color: $black;
+                    font-size: 21px;
+                }
+                p {
+                    @include m-p(16px, 0, 16px, 0);
+                    color: $gray;
+                    text-align: left;
+                    line-height: 1.5rem;
+                    letter-spacing: 1px;
+                }
+                .a-bottom {
+                    color: $orange;
+                    font-weight: bolder;
+                }
+            }
+        }
+        #last-blog {
+            @include m-p(0, 0, 0, 0, 20px, 20px, 20px, 20px);
+            border: 1px solid rgb(219, 219, 219);
+            box-shadow: rgba(45, 45, 45, 0.08) 0px 3px 10px 1px;
+            line-height: 1.5rem;
+            border-radius: 5px;
+            #last-blog-container {
+                @include flex-box(flex, unset, center, unset);
+                flex-direction: column;
+                .last-blog-item {
+                    a {
+                        color: $black;
+                        font-size: 21px;
+                        text-align: left;
+                    }
+                    p {
+                        @include m-p(16px, 0, 16px, 0);
+                        color: $orange;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+// CSS-Contact-us
+#contact-us {
+    @include m-p(0, 0, 0, 0, 40px, 120px, 40px, 120px);
+    h3 {
+        @include m-p(43px, 0, 43px, 0);
+        font-size: 2.7rem;
+        line-height: 4rem;
+    }
+    #contact-us-container {
+        @include m-p(0, 0, 0, 0, 0, 80px, 0, 80px);
+        @include flex-box(flex, space-around, unset, unset);
+        #left {
+            @include w-h(600px);
+            h3 {
+                @include m-p(0, 0, 30px, 0);
+                color: $orange;
+                text-align: left;
+                font-size: 2rem;
+                font-weight: 400;
+            }
+            .left-item {
+                @include flex-box(flex, unset, unset, unset);
+                @include m-p(0, 0, 20px, 0);
+                .left-icon {
+                    @include w-h(100px);
+                    text-align: left;
+                    i {
+                        font-size: 2rem;
+                    }
+                }
+                .left-text {
+                    h4 {
+                        @include m-p(0, 0, 10px, 0);
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        text-align: left;
+                    }
+                    p {
+                        @include m-p(0, 0, 2px, 0);
+                        font-size: 1rem;
+                        text-align: left;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+        #right {
+            @include w-h(640px);
+            @include m-p(0, 0, 0, 0, 32px, 32px, 32px, 32px);
+            background-color: $light-gray;
+            box-shadow: rgba(56, 56, 56, 0.21) 7px 7px 10px 0px;
+            .form-item {
+                @include m-p(0, 0, 15px, 0, 0);
+                input {
+                    @include w-h(100%);
+                    @include m-p(0, 0, 0, 0, 15px, 15px, 15px, 15px);
+                    border: 0;
+                    text-align: left;
+                    font-size: 1rem;
+                    line-height: normal;
+                }
+                textarea {
+                    @include w-h(100%, 180px);
+                    @include m-p(0, 0, 0, 0, 15px, 15px, 15px, 15px);
+                    font-size: 1rem;
+                    resize: none;
+                    border: 0;
+                    text-align: left;
+                }
+            }
+            button {
+                @include w-h(100%);
+                @include m-p(0, 0, 0, 0, 15px, 15px, 15px, 15px);
+                color: $white;
+                background-color: $orange;
+                font-size: 1rem;
+                border-radius: 5px;
+                border: 0;
+                line-height: normal;
+            }
+        }
+    }
+}
+// CSS-Footer
+footer {
+    @include m-p(0, 0, 0, 0, 50px, 80px, 50px, 80px);
+    color: $white;
+    background-color: $black;
+    #footer-row {
+        @include w-h(1520px);
+        @include flex-box(flex, space-around, unset, unset);
+        .footer-title {
+            @include m-p(22px, 0, 22px, 0);
+            p {
+                color: $white;
+                text-align: left;
+                font-size: 1.4rem;
+                line-height: 2rem;
+            }
+        }
+        .footer-content {
+            p {
+                color: $gray;
+                text-align: left;
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+        .footer-item {
+            @include w-h(274px);
+            .footer-contact {
+                .contact-item {
+                    @include m-p(0, 0, 20px, 0);
+                    h4 {
+                        @include m-p(0, 0, 10px 0);
+                        line-height: 1.5rem;
+                        margin-bottom: 10px;
+                        text-align: left;
+                    }
+                    p {
+                        line-height: 1.5rem;
+                        color: $gray;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .footer-item-last {
+            @include w-h(380px);
+            form {
+                @include m-p(15px, 0, 0, 0);
+                text-align: left;
+                input[type="email"] {
+                    @include m-p(0, 0, 0, 0, 13px, 13px, 13px, 13px);
+                    font-size: 1rem;
+                }
+                input[type="submit"] {
+                    @include m-p(0, 0, 0, -5px, 15px, 20px, 15px, 20px);
+                    color: $white;
+                    font-size: 1rem;
+                    background-color: $orange;
+                    border: 0;
+                }
+            }
+            .social-mds {
+                a {
+                    @include m-p(0, 10px, 0, 0, 5px, 5px, 5px, 5px);
+                    display: inline-block;
+                    i {
+                        font-size: 36px;
+                    }
+                    .f-color {
+                        color: #4267b2;
+                    }
+                    .t-color {
+                        color: #40bbea;
+                    }
+                    .y-color {
+                        color: #ff0000;
+                    }
+                    .g-color {
+                        color: #ea4335;
+                    }
+                }
+            }
+        }
+    }
+}
